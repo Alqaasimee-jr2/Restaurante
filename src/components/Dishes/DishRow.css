@@ -1,0 +1,87 @@
+.dish-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 16px;
+}
+.dish-row:last-child {
+  border-bottom: none;
+}
+.dish-row__info {
+  flex: 1;
+  min-width: 0;
+}
+.dish-row__header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dish-row__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+.dish-row__name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.dish-row__prices {
+  font-size: 14px;
+  white-space: nowrap;
+}
+.dish-row__size-label {
+  color: #888;
+  font-size: 12px;
+}
+.dish-row__price {
+  font-weight: 700;
+  color: #D4A017;
+}
+.dish-row__price-sep {
+  color: #ddd;
+}
+.dish-row__ingredients {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dish-row__actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.dish-row__add-btn {
+  border-radius: 8px !important;
+  font-weight: 500;
+}
+
+/* Prominent variant for Order Online page */
+.dish-row--prominent {
+  padding: 20px 0;
+}
+.dish-row--prominent .dish-row__name {
+  font-size: 17px;
+}
+.dish-row--prominent .dish-row__price {
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .dish-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .dish-row__actions {
+    align-self: flex-end;
+  }
+}

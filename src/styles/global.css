@@ -1,0 +1,119 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a2e;
+  --text-secondary: #555770;
+  --card-bg: #ffffff;
+  --border-color: #f0f0f0;
+  --cream-bg: #faf7f0;
+}
+
+:root.dark-mode {
+  --bg-color: #1a1a2e;
+  --text-color: #f4f4f8;
+  --text-secondary: #aaa;
+  --card-bg: #16213e;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --cream-bg: #16213e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text-color);
+  background: var(--bg-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ── Ant Design overrides ── */
+.ant-btn-primary {
+  background: #D4A017 !important;
+  border-color: #D4A017 !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+.ant-btn-primary:hover {
+  background: #c4920e !important;
+  border-color: #c4920e !important;
+}
+
+.ant-segmented {
+  background: rgba(128, 128, 128, 0.1) !important;
+  border-radius: 10px;
+  padding: 4px;
+}
+.ant-segmented-item {
+  color: var(--text-color) !important;
+}
+.ant-segmented-item-selected {
+  background: #D4A017 !important;
+  color: #1a1a2e !important; /* Always dark text on gold button for contrast */
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.ant-tabs-nav {
+  background: transparent !important;
+}
+.ant-tabs-tab {
+  color: var(--text-secondary) !important;
+}
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #D4A017 !important;
+}
+.ant-tabs-ink-bar {
+  background: #D4A017 !important;
+}
+
+.ant-badge .ant-badge-count {
+  font-weight: 700;
+}
+
+/* ── Selection ── */
+::selection {
+  background: #D4A017;
+  color: #fff;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}

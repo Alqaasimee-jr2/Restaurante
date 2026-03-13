@@ -1,0 +1,179 @@
+.about__hero {
+  position: relative;
+  height: 50vh;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1400&q=80') center/cover no-repeat;
+}
+.about__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(26,26,46,0.4) 100%);
+}
+.about__hero-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding: 0 24px;
+}
+.about__hero-content h1 {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0 0 12px;
+  letter-spacing: -1px;
+}
+.about__hero-content p {
+  font-size: 18px;
+  color: #D4A017;
+  font-weight: 600;
+}
+
+.about__section {
+  padding: 80px 24px;
+}
+.about__section--alt {
+  background: #faf7f0;
+}
+.about__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.about__section-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  text-align: center;
+  color: #1a1a2e;
+}
+.about__section-subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 16px;
+  margin: 0 0 40px;
+}
+
+/* Concept */
+.about__concept {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+.about__concept-text {
+  flex: 1;
+}
+.about__section h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 24px;
+}
+.about__section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.about__concept-img {
+  flex: 0 0 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+.about__concept-img img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Team */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+.philosophy-card {
+  padding: 40px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+.philosophy-card:hover {
+  transform: translateY(-10px);
+}
+.philosophy-card h3 {
+  font-size: 20px;
+  margin: 20px 0 12px;
+  color: var(--text-color);
+}
+.about__team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+.team-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  transition: transform 0.25s;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+}
+.team-card__img {
+  height: 260px;
+  overflow: hidden;
+}
+.team-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.team-card:hover .team-card__img img {
+  transform: scale(1.05);
+}
+.team-card__info {
+  padding: 24px;
+}
+.team-card__info h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.team-card__role {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #D4A017;
+  margin-bottom: 10px;
+}
+.team-card__info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.about__cta {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+}
+.about__cta h2 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .about__hero-content h1 { font-size: 32px; }
+  .about__concept { flex-direction: column-reverse; gap: 32px; }
+  .about__concept-img { flex: none; width: 100%; }
+  .about__section { padding: 48px 16px; }
+}
