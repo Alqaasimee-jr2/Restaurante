@@ -5,9 +5,9 @@ const restaurant = {
   description:
     'Where the bold, aromatic flavours of Nigeria meet the refined elegance of continental cuisine. Every plate tells a story of two traditions united by a love of great food.',
   address: '12 Victoria Island Boulevard, Lagos, Nigeria',
-  phone: '+234 812 345 6789',
-  whatsapp: '+2348123456789',
-  email: 'hello@saveur.ng',
+  phone: '09011144020',
+  whatsapp: '+2349011144020',
+  email: 'troy43478@gmail.com',
   hours: [
     { day: 'Monday – Friday', time: '11:00 AM – 10:00 PM' },
     { day: 'Saturday', time: '12:00 PM – 11:00 PM' },
