@@ -1,22 +1,52 @@
-/* ── Hero ── */
 .hero {
   position: relative;
   min-height: 85vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+.hero__bg-zoom {
+  position: absolute;
+  inset: 0;
   background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=80') center/cover no-repeat;
+  animation: hero-zoom 20s infinite alternate ease-in-out;
+  z-index: 0;
 }
 .hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(26,26,46,0.5) 100%);
+  z-index: 1;
 }
 .hero__content {
   position: relative;
   max-width: 700px;
   padding: 80px 40px;
   margin-left: 8%;
+  z-index: 2;
 }
+.hero__rotating-word {
+  display: inline-block;
+  color: #D4A017;
+  animation: word-fade-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes word-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero__tag {
   font-weight: 700;
   font-size: 13px;

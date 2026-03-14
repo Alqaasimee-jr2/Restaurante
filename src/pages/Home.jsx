@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Tag } from 'antd';
 import { ArrowRightOutlined, FireOutlined } from '@ant-design/icons';
@@ -10,18 +11,33 @@ const featured = dishes.filter((d) => d.featured);
 const popular = dishes.filter((d) => d.popular).slice(0, 6);
 const todaysSpecials = dishes.filter((d) => d.featured).slice(0, 3);
 
+const ROTATING_WORDS = ['Fine Dining', 'Authentic Soul', 'Modern Craft', 'True Excellence'];
+
 export default function Home() {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const formatPrice = (p) => `₦${p.toLocaleString()}`;
 
   return (
     <div className="home">
       {/* ── Hero ── */}
       <section className="hero">
+        <div className="hero__bg-zoom" />
         <div className="hero__overlay" />
         <div className="hero__content">
           <Tag color="#D4A017" className="hero__tag">{restaurant.tagline}</Tag>
           <h1 className="hero__title">
-            Where Bold Flavours<br />Meet Fine Dining
+            Where Bold Flavours<br />
+            Meet <span className="hero__rotating-word" key={ROTATING_WORDS[wordIndex]}>
+              {ROTATING_WORDS[wordIndex]}
+            </span>
           </h1>
           <p className="hero__subtitle">
             Experience the best of Nigerian and continental cuisine, crafted with passion
