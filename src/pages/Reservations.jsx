@@ -14,24 +14,42 @@ export default function Reservations() {
   const handleSubmit = async () => {
     try {
       const values = await form.validateFields();
-      const date = values.date?.format('dddd, MMMM D, YYYY') || '';
-      const time = values.time?.format('h:mm A') || '';
-      const msg = [
-        `📅 *Reservation Request — ${restaurant.name}*`,
-        `*Name:* ${values.name}`,
-        `*Phone:* ${values.phone}`,
-        `*Date:* ${date}`,
-        `*Time:* ${time}`,
-        `*Party Size:* ${values.partySize}`,
-        values.notes ? `*Notes:* ${values.notes}` : '',
-      ]
-        .filter(Boolean)
-        .join('\n');
-      const waUrl = `https://wa.me/${restaurant.whatsapp.replace('+', '')}?text=${encodeURIComponent(msg)}`;
-      window.open(waUrl, '_blank');
-      setSubmitted(true);
-      form.resetFields();
-    } catch {
+      
+      // Format phone number to international format if it starts with '0'
+      let formattedPhone = values.phone.trim();
+      if (formattedPhone.startsWith('0')) {
+        formattedPhone = '+234' + formattedPhone.slice(1);
+      }
+
+      const formattedDate = values.date?.format('dddd, MMMM D, YYYY') || '';
+      const formattedTime = values.time?.format('h:mm A') || '';
+
+      const payload = {
+        fullName: values.name,
+        phone: formattedPhone,
+        date: formattedDate,
+        time: formattedTime,
+        partySize: values.partySize,
+        specialRequests: values.notes || ''
+      };
+
+      const response = await fetch('https://hook.eu1.make.com/s8ct87qdgskn3gqmup2angk5n44aqgq1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        message.success('Success');
+        setSubmitted(true);
+        form.resetFields();
+      } else {
+        message.error('Failed to send reservation. Please try again or contact us via WhatsApp.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
       message.error('Please fill in all required fields');
     }
   };
