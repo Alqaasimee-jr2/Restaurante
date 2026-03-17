@@ -15,10 +15,10 @@ export default function Reservations() {
     try {
       const values = await form.validateFields();
       
-      // Format phone number to international format if it starts with '0'
-      let formattedPhone = values.phone.trim();
+      // Format phone number: remove spaces and '+', then replace leading '0' with '234'
+      let formattedPhone = values.phone.trim().replace(/[\s+]/g, '');
       if (formattedPhone.startsWith('0')) {
-        formattedPhone = '+234' + formattedPhone.slice(1);
+        formattedPhone = '234' + formattedPhone.slice(1);
       }
 
       const formattedDate = values.date?.format('dddd, MMMM D, YYYY') || '';
